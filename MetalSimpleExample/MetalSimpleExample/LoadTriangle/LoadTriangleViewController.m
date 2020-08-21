@@ -7,18 +7,59 @@
 //
 
 #import "LoadTriangleViewController.h"
+#import "TriangleRender.h"
+#import <Masonry/Masonry.h>
+@import MetalKit;
 
 @interface LoadTriangleViewController ()
-
+@property (nonatomic, strong) MTKView * mtkView;
+@property (nonatomic, strong) TriangleRender * render;
 @end
 
 @implementation LoadTriangleViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
-
+- (void)prepareForData{
+    
+}
+- (void)prepareForView{
+    self.navigationItem.title = @"Load Triangle";
+    _mtkView = [[MTKView alloc] init];
+    [self.view addSubview:self.mtkView];
+    [_mtkView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.top.equalTo(self.view);
+    }];
+       
+       
+       
+    //为mtkViw设置device
+    //一个MTLDevice 对象就代表这着一个GPU,通常我们可以调用方法MTLCreateSystemDefaultDevice()来获取代表默认的GPU单个对象.
+    _mtkView.device = MTLCreateSystemDefaultDevice();
+       
+    if (!_mtkView.device) {
+        NSLog(@"Metal is not supported on this device");
+        return;
+    }
+       
+    //创建helloRender
+    //在我们开发Metal 程序时,将渲染循环分为自己创建的类,是非常有用的一种方式,使用单独的类,我们可以更好管理初始化Metal,以及Metal视图委托.
+    _render = [[TriangleRender alloc] initWithMetalkView:_mtkView];
+       
+    if (!_render) {
+        NSLog(@"Renderer failed initialization");
+        return;
+    }
+    //设置MTKView 的代理(由CCRender来实现MTKView 的代理方法)
+    _mtkView.delegate = _render;
+    
+    //视图可以根据视图属性上设置帧速率(指定时间来调用drawInMTKView方法--视图需要渲染时调用)
+    _mtkView.preferredFramesPerSecond = 60;
+}
+- (void)prepareForAction{
+    
+}
 /*
 #pragma mark - Navigation
 

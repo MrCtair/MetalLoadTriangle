@@ -18,6 +18,9 @@
 		79604FD724EE6A81001F5137 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79604FD624EE6A81001F5137 /* BaseViewController.m */; };
 		79604FDA24EE6AD1001F5137 /* HelloMetalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79604FD924EE6AD1001F5137 /* HelloMetalViewController.m */; };
 		79604FDD24EE6C08001F5137 /* HelloRender.m in Sources */ = {isa = PBXBuildFile; fileRef = 79604FDC24EE6C08001F5137 /* HelloRender.m */; };
+		79604FE124EE7770001F5137 /* LoadTriangleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79604FE024EE7770001F5137 /* LoadTriangleViewController.m */; };
+		79604FE624EFA2DB001F5137 /* TriangleRender.m in Sources */ = {isa = PBXBuildFile; fileRef = 79604FE524EFA2DB001F5137 /* TriangleRender.m */; };
+		79604FEA24EFA497001F5137 /* TrianleShader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 79604FE924EFA497001F5137 /* TrianleShader.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +44,12 @@
 		79604FD924EE6AD1001F5137 /* HelloMetalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloMetalViewController.m; sourceTree = "<group>"; };
 		79604FDB24EE6C08001F5137 /* HelloRender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloRender.h; sourceTree = "<group>"; };
 		79604FDC24EE6C08001F5137 /* HelloRender.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloRender.m; sourceTree = "<group>"; };
+		79604FDF24EE7770001F5137 /* LoadTriangleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadTriangleViewController.h; sourceTree = "<group>"; };
+		79604FE024EE7770001F5137 /* LoadTriangleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadTriangleViewController.m; sourceTree = "<group>"; };
+		79604FE424EFA2DB001F5137 /* TriangleRender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TriangleRender.h; sourceTree = "<group>"; };
+		79604FE524EFA2DB001F5137 /* TriangleRender.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TriangleRender.m; sourceTree = "<group>"; };
+		79604FE824EFA421001F5137 /* TriangleTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TriangleTypes.h; sourceTree = "<group>"; };
+		79604FE924EFA497001F5137 /* TrianleShader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = TrianleShader.metal; sourceTree = "<group>"; };
 		FD68F4BDA154188E33356EBC /* Pods-MetalSimpleExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetalSimpleExample.debug.xcconfig"; path = "Target Support Files/Pods-MetalSimpleExample/Pods-MetalSimpleExample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,9 +95,9 @@
 		79604FB524EE678B001F5137 /* MetalSimpleExample */ = {
 			isa = PBXGroup;
 			children = (
+				79604FDE24EE774A001F5137 /* LoadTriangle */,
 				79604FD424EE6A66001F5137 /* BaseViewController */,
 				79604FD024EE69B0001F5137 /* Hello Metal */,
-				79604FCF24EE69A3001F5137 /* Render */,
 				79604FB624EE678B001F5137 /* AppDelegate.h */,
 				79604FB724EE678B001F5137 /* AppDelegate.m */,
 				79604FB924EE678B001F5137 /* SceneDelegate.h */,
@@ -116,6 +125,7 @@
 		79604FD024EE69B0001F5137 /* Hello Metal */ = {
 			isa = PBXGroup;
 			children = (
+				79604FCF24EE69A3001F5137 /* Render */,
 				79604FD824EE6AD1001F5137 /* HelloMetalViewController.h */,
 				79604FD924EE6AD1001F5137 /* HelloMetalViewController.m */,
 			);
@@ -129,6 +139,35 @@
 				79604FD624EE6A81001F5137 /* BaseViewController.m */,
 			);
 			path = BaseViewController;
+			sourceTree = "<group>";
+		};
+		79604FDE24EE774A001F5137 /* LoadTriangle */ = {
+			isa = PBXGroup;
+			children = (
+				79604FE224EE7779001F5137 /* Render */,
+				79604FDF24EE7770001F5137 /* LoadTriangleViewController.h */,
+				79604FE024EE7770001F5137 /* LoadTriangleViewController.m */,
+			);
+			path = LoadTriangle;
+			sourceTree = "<group>";
+		};
+		79604FE224EE7779001F5137 /* Render */ = {
+			isa = PBXGroup;
+			children = (
+				79604FE324EFA0FB001F5137 /* Render */,
+			);
+			path = Render;
+			sourceTree = "<group>";
+		};
+		79604FE324EFA0FB001F5137 /* Render */ = {
+			isa = PBXGroup;
+			children = (
+				79604FE424EFA2DB001F5137 /* TriangleRender.h */,
+				79604FE524EFA2DB001F5137 /* TriangleRender.m */,
+				79604FE924EFA497001F5137 /* TrianleShader.metal */,
+				79604FE824EFA421001F5137 /* TriangleTypes.h */,
+			);
+			path = Render;
 			sourceTree = "<group>";
 		};
 		AC159778021798634A39318B /* Frameworks */ = {
@@ -255,8 +294,11 @@
 			files = (
 				79604FBE24EE678B001F5137 /* ViewController.m in Sources */,
 				79604FD724EE6A81001F5137 /* BaseViewController.m in Sources */,
+				79604FEA24EFA497001F5137 /* TrianleShader.metal in Sources */,
 				79604FB824EE678B001F5137 /* AppDelegate.m in Sources */,
 				79604FDA24EE6AD1001F5137 /* HelloMetalViewController.m in Sources */,
+				79604FE624EFA2DB001F5137 /* TriangleRender.m in Sources */,
+				79604FE124EE7770001F5137 /* LoadTriangleViewController.m in Sources */,
 				79604FC924EE6791001F5137 /* main.m in Sources */,
 				79604FDD24EE6C08001F5137 /* HelloRender.m in Sources */,
 				79604FBB24EE678B001F5137 /* SceneDelegate.m in Sources */,

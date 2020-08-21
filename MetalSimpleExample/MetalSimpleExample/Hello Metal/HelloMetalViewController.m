@@ -31,6 +31,17 @@
         make.left.right.bottom.top.equalTo(self.view);
     }];
     
+    UILabel * label = [[UILabel alloc] init];
+    label.textColor = [UIColor blackColor];
+    label.font = [UIFont systemFontOfSize:40];
+    label.text = @"Hello Metal";
+    
+    [self.view addSubview:label];
+    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view.mas_centerX);
+        make.centerY.equalTo(self.view.mas_centerY);
+    }];
+    
     //为mtkViw设置device
     //一个MTLDevice 对象就代表这着一个GPU,通常我们可以调用方法MTLCreateSystemDefaultDevice()来获取代表默认的GPU单个对象.
     _mtkView.device = MTLCreateSystemDefaultDevice();

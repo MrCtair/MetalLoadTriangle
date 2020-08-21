@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import <Masonry/Masonry.h>
 #import "HelloMetalViewController.h"
+#import "LoadTriangleViewController.h"
 
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView * tableView;
@@ -59,8 +60,13 @@
     return 44;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    HelloMetalViewController * helloVc = [[HelloMetalViewController alloc] init];
-    [self.navigationController pushViewController:helloVc animated:YES];
+    if (indexPath.row == 0) {
+        HelloMetalViewController * helloVc = [[HelloMetalViewController alloc] init];
+        [self.navigationController pushViewController:helloVc animated:YES];
+    }else{
+        LoadTriangleViewController * loadTriangleVc = [[LoadTriangleViewController alloc] init];
+        [self.navigationController pushViewController:loadTriangleVc animated:YES];
+    }
 }
 
 #pragma mark --lazy init
