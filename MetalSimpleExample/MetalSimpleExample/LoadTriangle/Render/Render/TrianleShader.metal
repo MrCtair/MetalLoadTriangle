@@ -13,7 +13,7 @@ using namespace metal;
 typedef struct {
     //处理空间顶点信息
     float4 clipSpacePosition [[position]];
-    
+
     //颜色
     float4 color;
 }RasterizerData;

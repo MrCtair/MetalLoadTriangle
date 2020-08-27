@@ -83,7 +83,7 @@
     //指定缓冲区名字
     commandBuffer.label = @"commandBuffer";
     
-    //MTLRenderPassDescriptor:一组渲染目标，用作渲染通道生成的像素的输出目标
+    //MTLRenderPassDescriptor:一组渲染目标，用作渲染通道生成的像素的输出目标（描述信息）
     MTLRenderPassDescriptor *renderPassDescriptor = view.currentRenderPassDescriptor;
     if (renderPassDescriptor != nil) {
         //创建渲染命令编码器,这样我们才可以渲染到something
@@ -91,7 +91,7 @@
         //命名
         renderEncoder.label = @"My RenderEncoder";
         
-        //设置氪绘制区域
+        //设置绘制区域
         /*
         typedef struct {
             double originX, originY, width, height, znear, zfar;
@@ -141,7 +141,7 @@
                           vertexStart:0
                           vertexCount:3];
         
-        //表示已该编码器生成的命令都已完成,并且从NTLCommandBuffer中分离
+        //表示已该编码器生成的命令都已完成,并且从MTLCommandBuffer中分离
         [renderEncoder endEncoding];
         
         //
